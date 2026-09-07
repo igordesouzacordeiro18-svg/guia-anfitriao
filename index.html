@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Guia do Hóspede | Guest Guide</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <header class="app-header">
+      <div class="lang-switch">
+        <button onclick="setLanguage('pt')" id="btn-pt" class="lang-chip active">PT 🇧🇷</button>
+        <button onclick="setLanguage('en')" id="btn-en" class="lang-chip">EN 🇺🇸</button>
+        <button onclick="setLanguage('es')" id="btn-es" class="lang-chip">ES 🇪🇸</button>
+      </div>
+      <div class="hero-text">
+        <span class="badge-welcome" data-i18n="badge_welcome">🏡 BEM-VINDO</span>
+        <h1 data-i18n="hero_title">Aproveite sua estadia!</h1>
+        <p data-i18n="hero_subtitle">Preparamos este guia para facilitar sua viagem.</p>
+      </div>
+    </header>
+
+    <div class="wifi-banner">
+      <div class="wifi-info">
+        <span class="wifi-icon">📶</span>
+        <div>
+          <strong id="wifi-net">Rede...</strong>
+          <small id="wifi-pass">Senha...</small>
+        </div>
+      </div>
+      <button onclick="copyWifi()" class="btn-copy" data-i18n="wifi_btn">Copiar</button>
+    </div>
+
+    <section class="menu-grid">
+      
+      <div class="grid-row">
+        <button class="nav-card" onclick="openSection('restaurants')">
+          <span class="card-emoji">🍽️</span>
+          <span data-i18n="menu_rest">Restaurantes</span>
+        </button>
+        <button class="nav-card" onclick="openSection('beaches')">
+          <span class="card-emoji">🏖️</span>
+          <span data-i18n="menu_beaches">Praias</span>
+        </button>
+      </div>
+
+      <div class="grid-row">
+        <button class="nav-card" onclick="openSection('trails')">
+          <span class="card-emoji">🥾</span>
+          <span data-i18n="menu_trails">Trilhas</span>
+        </button>
+        <button class="nav-card" onclick="openSection('distances')">
+          <span class="card-emoji">📍</span>
+          <span data-i18n="menu_distances">Distâncias</span>
+        </button>
+      </div>
+
+      <button class="nav-card full-width" onclick="openSection('house-info')">
+        <span class="card-emoji">📋</span>
+        <span data-i18n="menu_house">Informações da Casa</span>
+      </button>
+
+      <a href="https://wa.me/5521999833623?text=Olá!%20Sou%20hóspede%20da%20casa%20e%20preciso%20de%20uma%20informação." target="_blank" class="nav-card full-width whatsapp-card">
+        <span class="card-emoji">💬</span>
+        <span data-i18n="menu_host">Falar com Anfitrião</span>
+      </a>
+
+    </section>
+
+    <div id="detail-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="modal-title">Título</h2>
+          <button onclick="closeSection()" class="btn-close">✕</button>
+        </div>
+        <div id="modal-body" class="modal-body"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
