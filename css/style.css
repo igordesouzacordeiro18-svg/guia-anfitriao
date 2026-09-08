@@ -1,219 +1,450 @@
 :root {
-  --primary: #0284c7;
-  --whatsapp: #25d366;
-  --bg-app: #f1f5f9;
+  --bg-color: #f7f4ef;
   --card-bg: #ffffff;
-  --text-main: #0f172a;
-  --text-sub: #64748b;
-  --radius-lg: 20px;
-  --radius-md: 12px;
-  --shadow: 0 4px 12px rgba(0,0,0,0.06);
+  --text-main: #333333;
+  --text-muted: #666666;
+  --accent: #d4a373;
+  --border-radius: 16px;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  -webkit-tap-highlight-color: transparent;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 body {
-  background-color: #cbd5e1;
+  background-color: var(--bg-color);
+  color: var(--text-main);
   display: flex;
   justify-content: center;
-  min-height: 100vh;
+  padding: 20px;
 }
 
-.app-container {
+.container {
   width: 100%;
-  max-width: 430px;
-  background: var(--bg-app);
-  min-height: 100vh;
-  position: relative;
-  box-shadow: 0 0 20px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
+  max-width: 400px;
 }
 
-.app-header {
-  background: linear-gradient(135deg, #0284c7, #0369a1);
-  color: white;
-  padding: 24px 20px 20px;
-  border-bottom-left-radius: 28px;
-  border-bottom-right-radius: 28px;
+/* Header */
+.header-welcome {
+  text-align: center;
+  margin-bottom: 24px;
 }
 
-.lang-switch {
-  display: flex;
-  justify-content: flex-end;
-  gap: 6px;
-  margin-bottom: 12px;
-}
-
-.lang-chip {
-  background: rgba(255,255,255,0.2);
-  border: none;
-  color: white;
-  padding: 4px 10px;
-  border-radius: 12px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.lang-chip.active {
-  background: white;
-  color: var(--primary);
-}
-
-.badge-welcome {
-  font-size: 0.75rem;
+.header-welcome h1 {
+  font-size: 1.6rem;
   letter-spacing: 1px;
-  font-weight: 700;
-  opacity: 0.9;
+  margin-bottom: 6px;
 }
 
-.hero-text h1 {
-  font-size: 1.4rem;
-  margin: 4px 0;
+.header-welcome p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
 }
 
-.hero-text p {
-  font-size: 0.85rem;
-  opacity: 0.85;
-}
-
-.wifi-banner {
-  background: var(--card-bg);
-  margin: -15px 20px 16px;
-  padding: 12px 16px;
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border: 1px solid #e2e8f0;
-}
-
-.wifi-info {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.wifi-info strong {
-  display: block;
-  font-size: 0.85rem;
-}
-
-.wifi-info small {
-  color: var(--text-sub);
-  font-size: 0.8rem;
-}
-
-.btn-copy {
-  background: #e0f2fe;
-  color: var(--primary);
-  border: none;
-  padding: 8px 14px;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 0.8rem;
-  cursor: pointer;
-}
-
-.menu-grid {
-  padding: 0 20px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.grid-row {
+/* Informações de Acesso Rápido */
+.quick-access {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
+  margin-bottom: 24px;
 }
 
-.nav-card {
+.info-card {
   background: var(--card-bg);
-  border: 1px solid #e2e8f0;
-  border-radius: var(--radius-lg);
-  padding: 20px 16px;
+  padding: 14px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.info-card h3 {
+  font-size: 0.85rem;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.info-card p {
+  font-size: 0.8rem;
+  line-height: 1.3;
+}
+
+/* Grid do Menu Principal */
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.menu-item {
+  background: var(--card-bg);
+  padding: 20px 10px;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  color: var(--text-main);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  font-weight: 700;
-  color: var(--text-main);
-  font-size: 0.95rem;
-  box-shadow: var(--shadow);
-  cursor: pointer;
-  transition: transform 0.1s ease;
-  text-decoration: none;
+  gap: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  transition: transform 0.2s;
 }
 
-.nav-card:active {
+.menu-item:active {
+  transform: scale(0.97);
+}
+
+.menu-item .icon {
+  font-size: 1.8rem;
+}
+
+.menu-item.highlight {
+  grid-column: span 2;
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+/* Páginas Internas */
+.btn-back {
+  display: inline-block;
+  margin-bottom: 20px;
+  text-decoration: none;
+  color: var(--accent);
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.content-list {
+  background: var(--card-bg);
+  padding: 20px 20px 20px 35px;
+  border-radius: var(--border-radius);
+  line-height: 1.8;
+  font-size: 0.9rem;
+}
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card {
+  background: var(--card-bg);
+  padding: 16px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.card h3 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.card p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.badge {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.75rem;
+  background: var(--bg-color);
+  padding: 4px 8px;
+  border-radius: 6px;
+  color: var(--accent);
+}
+
+/* --- Página de Praias (Versão App Pro) --- */
+.beach-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.beach-card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Moldura proporcional para imagens */
+.beach-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9; /* Mantém a imagem na proporção de celular */
+  background-color: #e2e8f0;
+}
+
+.beach-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Corta a imagem perfeitamente sem distorcer */
+  display: block;
+}
+
+.distance-tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.beach-content {
+  padding: 14px;
+}
+
+.beach-content h3 {
+  font-size: 1.05rem;
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+
+.beach-content p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+/* Transformando o link em Botão de App */
+.btn-maps-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #e0dad0;
+  transition: all 0.2s ease;
+}
+
+.btn-maps-action:active {
+  background-color: #e8e2d8;
   transform: scale(0.98);
 }
 
-.nav-card.full-width {
-  flex-direction: row;
-  justify-content: flex-start;
-  padding: 16px 20px;
+/* --- Organização de Restaurantes e Locais --- */
+.section-group {
+  margin-bottom: 24px;
 }
 
-.card-emoji {
-  font-size: 1.5rem;
+.group-title {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
 }
 
-.whatsapp-card {
-  background: #dcfce7;
-  color: #14532d;
-  border-color: #bbf7d0;
+.places-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.modal {
-  display: none;
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.5);
-  z-index: 100;
-  animation: fadeIn 0.2s ease;
-}
-
-.modal-content {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  max-height: 85%;
+.place-card {
   background: var(--card-bg);
-  border-top-left-radius: 24px;
-  border-top-right-radius: 24px;
-  padding: 20px;
-  overflow-y: auto;
-  animation: slideUp 0.25s cubic-bezier(0, 0, 0.2, 1);
+  border-radius: var(--border-radius);
+  padding: 14px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
-.modal-header {
+.place-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
-  border-bottom: 1px solid #f1f5f9;
-  padding-bottom: 12px;
+  margin-bottom: 6px;
 }
 
-.btn-close {
-  background: #f1f5f9;
-  border: none;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  font-weight: bold;
+.place-header h3 {
+  font-size: 0.98rem;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.distance-badge {
+  background-color: var(--bg-color);
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 12px;
+  border: 1px solid #e0dad0;
+  white-space: nowrap;
+}
+
+.place-card p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.35;
+  margin: 0 0 10px 0;
+}
+
+/* --- Página de Trilhas --- */
+.trail-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.trail-card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.trail-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: #e2e8f0;
+}
+
+.trail-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.trail-content {
+  padding: 14px;
+}
+
+.trail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.trail-header h3 {
+  font-size: 1.05rem;
+  color: var(--text-main);
+  margin: 0;
+}
+
+/* Badges de Dificuldade */
+.difficulty-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+.level-easy {
+  background-color: #e6fffa;
+  color: #234e52;
+  border: 1px solid #b2f5ea;
+}
+
+.level-medium {
+  background-color: #feefc3;
+  color: #744210;
+  border: 1px solid #fbd38d;
+}
+
+.level-hard {
+  background-color: #fff5f5;
+  color: #9b2c2c;
+  border: 1px solid #feb2b2;
+}
+
+.trail-info {
+  font-size: 0.8rem;
+  color: var(--text-main);
+  margin-bottom: 6px;
+}
+
+.trail-content p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+/* Contêiner de Idiomas Compacto */
+.language-selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 10px auto 18px auto;
+  padding: 6px 10px;
+  background: #1e293b;
+  border-radius: 20px;
+  width: fit-content;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Botões de Idioma Menores */
+.lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background-color: #ffffff;
+  color: #0f172a;
+  border: 1.5 solid #ffffff;
+  padding: 4px 10px;
+  border-radius: 14px;
+  font-size: 0.8rem;
+  font-weight: 700;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+.lang-btn .flag {
+  font-size: 0.95rem;
+}
+
+/* Efeito ao passar o mouse */
+.lang-btn:hover {
+  background-color: #f1f5f9;
+  border-color: #38bdf8;
+  transform: translateY(-1px);
+}
+
+/* Botão Selecionado (Idioma Ativo) */
+.lang-btn.active {
+  background-color: #0284c7;
+  color: #ffffff;
+  border-color: #38bdf8;
+  box-shadow: 0 0 6px rgba(56, 189, 248, 0.4);
+}
+
+.place-card {
+  overflow: hidden; /* Garante que a imagem respeite as bordas arredondadas do card */
+  display: flex;
+  flex-direction: column;
+}
+
+.place-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover; /* Ajusta a imagem sem distorcer */
+  border-top-left-radius: 8px; /* Ajuste para o raio de borda do seu card */
+  border-top-right-radius: 8px;
+}

@@ -1,0 +1,17 @@
+{
+  "informacoes_casa": {
+    "wifi_rede": "Pontal_Guest",
+    "wifi_senha": "riobeach2026",
+    "checkout": "Até as 11:00h"
+  },
+  "menu": [
+    { "id": "regras", "titulo": "Regras da Casa", "icone": "📜", "link": "regras.html" },
+    { "id": "restaurantes", "titulo": "Restaurantes", "icone": "🍽️", "link": "restaurantes.html" },
+    { "id": "padarias", "titulo": "Cafés & Padarias", "icone": "☕", "link": "padarias.html" },
+    { "id": "praias", "titulo": "Praias", "icone": "🏖️", "link": "praias.html" },
+    { "id": "trilhas", "titulo": "Trilhas", "icone": "🥾", "link": "trilhas.html" },
+    { "id": "como-chegar", "titulo": "Como Chegar", "icone": "🗺️", "link": "como-chegar.html" },
+    { "id": "transporte", "titulo": "Ônibus & BRT", "icone": "🚌", "link": "transporte.html" },
+    { "id": "emergencias", "titulo": "Emergências", "icone": "🚨", "link": "emergencias.html" }
+  ]
+}

@@ -2,87 +2,92 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Guia do Hóspede | Guest Guide</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guia do Hóspede - Estrada do Pontal</title>
   <link rel="stylesheet" href="css/style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="container">
 
-  <div class="app-container">
-    
-    <header class="app-header">
-      <div class="lang-switch">
-        <button onclick="setLanguage('pt')" id="btn-pt" class="lang-chip active">PT 🇧🇷</button>
-        <button onclick="setLanguage('en')" id="btn-en" class="lang-chip">EN 🇺🇸</button>
-        <button onclick="setLanguage('es')" id="btn-es" class="lang-chip">ES 🇪🇸</button>
-      </div>
-      <div class="hero-text">
-        <span class="badge-welcome" data-i18n="badge_welcome">🏡 BEM-VINDO</span>
-        <h1 data-i18n="hero_title">Aproveite sua estadia!</h1>
-        <p data-i18n="hero_subtitle">Preparamos este guia para facilitar sua viagem.</p>
-      </div>
+    <!-- Seletor de Idiomas Destacado -->
+    <div class="language-selector">
+      <button id="btn-pt" onclick="setLanguage('pt')" class="lang-btn active">
+        <span class="flag">🇧🇷</span> PT
+      </button>
+      <button id="btn-en" onclick="setLanguage('en')" class="lang-btn">
+        <span class="flag">🇺🇸</span> EN
+      </button>
+      <button id="btn-es" onclick="setLanguage('es')" class="lang-btn">
+        <span class="flag">🇪🇸</span> ES
+      </button>
+    </div>
+
+    <header class="header-welcome">
+      <h1 data-i18n="badge_welcome">SEJA BEM-VINDO!</h1>
+      <p>Estrada do Pontal, 7.350 - Rio de Janeiro</p>
     </header>
 
-    <div class="wifi-banner">
-      <div class="wifi-info">
-        <span class="wifi-icon">📶</span>
-        <div>
-          <strong id="wifi-net">Rede...</strong>
-          <small id="wifi-pass">Senha...</small>
-        </div>
+    <!-- Card de Acesso Rápido -->
+    <section class="quick-access">
+      <div class="info-card">
+        <h3>📶 WI-FI</h3>
+        <p><strong>Rede:</strong> <span id="wifi-net">Pontal_Guest</span></p>
+        <p><strong>Senha:</strong> <span id="wifi-pass">riobeach2026</span></p>
+        <button onclick="copyWifi()" style="margin-top: 6px; padding: 4px 10px; cursor: pointer;" data-i18n="wifi_btn">Copiar</button>
       </div>
-      <button onclick="copyWifi()" class="btn-copy" data-i18n="wifi_btn">Copiar</button>
-    </div>
-
-    <section class="menu-grid">
-      
-      <div class="grid-row">
-        <button class="nav-card" onclick="openSection('restaurants')">
-          <span class="card-emoji">🍽️</span>
-          <span data-i18n="menu_rest">Restaurantes</span>
-        </button>
-        <button class="nav-card" onclick="openSection('beaches')">
-          <span class="card-emoji">🏖️</span>
-          <span data-i18n="menu_beaches">Praias</span>
-        </button>
+      <div class="info-card">
+        <h3>🔑 CHECK-OUT</h3>
+        <p>Até as 11:00h</p>
       </div>
-
-      <div class="grid-row">
-        <button class="nav-card" onclick="openSection('trails')">
-          <span class="card-emoji">🥾</span>
-          <span data-i18n="menu_trails">Trilhas</span>
-        </button>
-        <button class="nav-card" onclick="openSection('distances')">
-          <span class="card-emoji">📍</span>
-          <span data-i18n="menu_distances">Distâncias</span>
-        </button>
-      </div>
-
-      <button class="nav-card full-width" onclick="openSection('house-info')">
-        <span class="card-emoji">📋</span>
-        <span data-i18n="menu_house">Informações da Casa</span>
-      </button>
-
-      <a href="https://wa.me/5521999833623?text=Olá!%20Sou%20hóspede%20da%20casa%20e%20preciso%20de%20uma%20informação." target="_blank" class="nav-card full-width whatsapp-card">
-        <span class="card-emoji">💬</span>
-        <span data-i18n="menu_host">Falar com Anfitrião</span>
-      </a>
-
     </section>
 
-    <div id="detail-modal" class="modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 id="modal-title">Título</h2>
-          <button onclick="closeSection()" class="btn-close">✕</button>
-        </div>
-        <div id="modal-body" class="modal-body"></div>
-      </div>
-    </div>
+    <!-- Grid de Navegação (Abre cada template numa nova aba) -->
+    <main class="menu-grid">
+      <a href="regras.html" target="_blank" class="menu-item">
+        <span class="icon">📜</span>
+        <span data-i18n="menu_house">Regras da Casa</span>
+      </a>
 
+      <a href="restaurantes.html" target="_blank" class="menu-item">
+        <span class="icon">🍽️</span>
+        <span data-i18n="menu_rest">Restaurantes</span>
+      </a>
+
+      <a href="padarias.html" target="_blank" class="menu-item">
+        <span class="icon">☕</span>
+        <span data-i18n="menu_bakeries">Cafés & Padarias</span>
+      </a>
+
+      <a href="praias.html" target="_blank" class="menu-item">
+        <span class="icon">🏖️</span>
+        <span data-i18n="menu_beaches">Praias</span>
+      </a>
+
+      <a href="trilhas.html" target="_blank" class="menu-item">
+        <span class="icon">🥾</span>
+        <span data-i18n="menu_trails">Trilhas</span>
+      </a>
+
+      <a href="como-chegar.html" target="_blank" class="menu-item">
+        <span class="icon">🗺️</span>
+        <span data-i18n="menu_how_to_get">Como Chegar</span>
+      </a>
+
+      <a href="transporte.html" target="_blank" class="menu-item">
+        <span class="icon">🚌</span>
+        <span data-i18n="menu_bus">Ônibus & BRT</span>
+      </a>
+
+      <a href="emergencias.html" target="_blank" class="menu-item">
+        <span class="icon">🚨</span>
+        <span data-i18n="menu_emergencies">Emergências</span>
+      </a>
+
+      <a href="https://wa.me/5521999833623" target="_blank" class="menu-item highlight">
+        <span class="icon">💬</span>
+        <span data-i18n="menu_host">Falar com Anfitrião</span>
+      </a>
+    </main>
   </div>
 
   <script src="js/main.js"></script>
