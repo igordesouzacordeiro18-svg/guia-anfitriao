@@ -585,3 +585,119 @@ body {
 .menu-item.highlight:hover {
   border-color: #23521f;
 }
+
+/* ==========================================
+   EFEITOS VISUAIS SUAVES & ANIMAÇÕES
+   ========================================== */
+
+/* 1. Animação de entrada dos cards */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.menu-item, .info-card {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+/* 2. Efeito de Vidro Aconchegante nos Cards de Informação */
+.info-card {
+  background: rgba(255, 253, 249, 0.85) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* 3. Brilho sutil no botão Falar com Anfitrião */
+.menu-item.highlight {
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-item.highlight::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+  transform: rotate(30deg);
+  transition: all 0.6s ease;
+}
+
+.menu-item.highlight:active::after {
+  left: 100%;
+}
+
+/* ==========================================
+   CARDS COM CORES INDIVIDUAIS & DESTAQUES
+   ========================================== */
+
+/* Transição de elevação nos cards */
+.menu-item {
+  border: 1px solid #e0d6c8;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.menu-item:active {
+  transform: translateY(-4px) scale(0.98);
+}
+
+/* 1. Regras da Casa (Tom Madeira/Palha) */
+.menu-item[href="regras.html"] {
+  background-color: #fcf8f2;
+  border-left: 5px solid #d4a373;
+}
+
+/* 2. Restaurantes (Tom Terracota Suave) */
+.menu-item[href="restaurantes.html"] {
+  background-color: #fdf5f2;
+  border-left: 5px solid #b85b35;
+}
+
+/* 3. Cafés & Padarias (Tom Café com Leite) */
+.menu-item[href="padarias.html"] {
+  background-color: #fbf6f0;
+  border-left: 5px solid #8c6d58;
+}
+
+/* 4. Praias (Tom Azul Mar) */
+.menu-item[href="praias.html"] {
+  background-color: #f0f7f9;
+  border-left: 5px solid #2b7a78;
+}
+
+/* 5. Trilhas (Tom Verde Natureza) */
+.menu-item[href="trilhas.html"] {
+  background-color: #f2f7f2;
+  border-left: 5px solid #4a7c59;
+}
+
+/* 6. Como Chegar (Tom Amarelo Areia) */
+.menu-item[href="como-chegar.html"] {
+  background-color: #fdfaf2;
+  border-left: 5px solid #e0a96d;
+}
+
+/* 7. Ônibus & BRT (Tom Cinza Urbano Warm) */
+.menu-item[href="transporte.html"] {
+  background-color: #f5f5f7;
+  border-left: 5px solid #6c757d;
+}
+
+/* 8. Emergências (Tom Vermelho Alerta Suave) */
+.menu-item[href="emergencias.html"] {
+  background-color: #fdf2f2;
+  border-left: 5px solid #c94c4c;
+}
