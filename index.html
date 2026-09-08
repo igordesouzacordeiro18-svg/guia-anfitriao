@@ -9,22 +9,25 @@
 <body>
   <div class="container">
 
-    <!-- Seletor de Idiomas Destacado -->
-    <div class="language-selector">
-      <button id="btn-pt" onclick="setLanguage('pt')" class="lang-btn active">
-        <span class="flag">🇧🇷</span> PT
-      </button>
-      <button id="btn-en" onclick="setLanguage('en')" class="lang-btn">
-        <span class="flag">🇺🇸</span> EN
-      </button>
-      <button id="btn-es" onclick="setLanguage('es')" class="lang-btn">
-        <span class="flag">🇪🇸</span> ES
-      </button>
-    </div>
+    <!-- Header Rústico com Banner de Fundo -->
+    <header class="hero-banner">
+      <!-- Seletor de Idiomas Destacado -->
+      <div class="language-selector">
+        <button id="btn-pt" onclick="setLanguage('pt')" class="lang-btn active">
+          <span class="flag">🇧🇷</span> PT
+        </button>
+        <button id="btn-en" onclick="setLanguage('en')" class="lang-btn">
+          <span class="flag">🇺🇸</span> EN
+        </button>
+        <button id="btn-es" onclick="setLanguage('es')" class="lang-btn">
+          <span class="flag">🇪🇸</span> ES
+        </button>
+      </div>
 
-    <header class="header-welcome">
-      <h1 data-i18n="badge_welcome">SEJA BEM-VINDO!</h1>
-      <p>Estrada do Pontal, 7.350 - Rio de Janeiro</p>
+      <div class="hero-content">
+        <h1 data-i18n="badge_welcome">SEJA BEM-VINDO!</h1>
+        <p>📍 Estrada do Pontal, 7.350 - Rio de Janeiro</p>
+      </div>
     </header>
 
     <!-- Card de Acesso Rápido -->
@@ -41,7 +44,7 @@
       </div>
     </section>
 
-    <!-- Grid de Navegação (Abre cada template numa nova aba) -->
+    <!-- Grid de Navegação -->
     <main class="menu-grid">
       <a href="regras.html" target="_blank" class="menu-item">
         <span class="icon">📜</span>

@@ -1,3 +1,6 @@
+/* ==========================================
+   1. VARIÁVEIS & RESET GLOBAL
+   ========================================== */
 :root {
   --bg-color: #f7f4ef;
   --card-bg: #ffffff;
@@ -27,7 +30,9 @@ body {
   max-width: 400px;
 }
 
-/* Header */
+/* ==========================================
+   2. CABEÇALHO & SELETOR DE IDIOMAS
+   ========================================== */
 .header-welcome {
   text-align: center;
   margin-bottom: 24px;
@@ -44,7 +49,54 @@ body {
   color: var(--text-muted);
 }
 
-/* Informações de Acesso Rápido */
+.language-selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 10px auto 18px auto;
+  padding: 6px 10px;
+  background: #1e293b;
+  border-radius: 20px;
+  width: fit-content;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background-color: #ffffff;
+  color: #0f172a;
+  border: 1.5px solid #ffffff;
+  padding: 4px 10px;
+  border-radius: 14px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.lang-btn .flag {
+  font-size: 0.95rem;
+}
+
+.lang-btn:hover {
+  background-color: #f1f5f9;
+  border-color: #38bdf8;
+  transform: translateY(-1px);
+}
+
+.lang-btn.active {
+  background-color: #0284c7;
+  color: #ffffff;
+  border-color: #38bdf8;
+  box-shadow: 0 0 6px rgba(56, 189, 248, 0.4);
+}
+
+/* ==========================================
+   3. MENU PRINCIPAL & ACESSO RÁPIDO
+   ========================================== */
 .quick-access {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -70,7 +122,6 @@ body {
   line-height: 1.3;
 }
 
-/* Grid do Menu Principal */
 .menu-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -107,7 +158,9 @@ body {
   color: #2e7d32;
 }
 
-/* Páginas Internas */
+/* ==========================================
+   4. PÁGINAS INTERNAS & COMPONENTES GERAIS
+   ========================================== */
 .btn-back {
   display: inline-block;
   margin-bottom: 20px;
@@ -159,66 +212,6 @@ body {
   color: var(--accent);
 }
 
-/* --- Página de Praias (Versão App Pro) --- */
-.beach-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.beach-card {
-  background: var(--card-bg);
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-/* Moldura proporcional para imagens */
-.beach-image-wrapper {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9; /* Mantém a imagem na proporção de celular */
-  background-color: #e2e8f0;
-}
-
-.beach-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Corta a imagem perfeitamente sem distorcer */
-  display: block;
-}
-
-.distance-tag {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(4px);
-  color: #ffffff;
-  font-size: 0.75rem;
-  font-weight: 600;
-  padding: 4px 10px;
-  border-radius: 20px;
-}
-
-.beach-content {
-  padding: 14px;
-}
-
-.beach-content h3 {
-  font-size: 1.05rem;
-  color: var(--text-main);
-  margin-bottom: 4px;
-}
-
-.beach-content p {
-  font-size: 0.82rem;
-  color: var(--text-muted);
-  line-height: 1.4;
-  margin-bottom: 12px;
-}
-
-/* Transformando o link em Botão de App */
 .btn-maps-action {
   display: flex;
   align-items: center;
@@ -240,7 +233,9 @@ body {
   transform: scale(0.98);
 }
 
-/* --- Organização de Restaurantes e Locais --- */
+/* ==========================================
+   5. LISTAGEM DE RESTAURANTES & LOCAIS
+   ========================================== */
 .section-group {
   margin-bottom: 24px;
 }
@@ -267,6 +262,19 @@ body {
   padding: 14px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
   border: 1px solid rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.place-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  margin: -14px -14px 12px -14px;
+  width: calc(100% + 28px);
 }
 
 .place-header {
@@ -300,13 +308,17 @@ body {
   margin: 0 0 10px 0;
 }
 
-/* --- Página de Trilhas --- */
+/* ==========================================
+   6. PÁGINAS DE PRAIAS & TRILHAS
+   ========================================== */
+.beach-grid,
 .trail-grid {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
+.beach-card,
 .trail-card {
   background: var(--card-bg);
   border-radius: var(--border-radius);
@@ -314,6 +326,7 @@ body {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
+.beach-image-wrapper,
 .trail-image-wrapper {
   position: relative;
   width: 100%;
@@ -321,6 +334,7 @@ body {
   background-color: #e2e8f0;
 }
 
+.beach-img,
 .trail-img {
   width: 100%;
   height: 100%;
@@ -328,8 +342,29 @@ body {
   display: block;
 }
 
+.distance-tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.beach-content,
 .trail-content {
   padding: 14px;
+}
+
+.beach-content h3,
+.trail-header h3 {
+  font-size: 1.05rem;
+  color: var(--text-main);
+  margin: 0 0 4px 0;
 }
 
 .trail-header {
@@ -340,10 +375,18 @@ body {
   margin-bottom: 6px;
 }
 
-.trail-header h3 {
-  font-size: 1.05rem;
+.beach-content p,
+.trail-content p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.trail-info {
+  font-size: 0.8rem;
   color: var(--text-main);
-  margin: 0;
+  margin-bottom: 6px;
 }
 
 /* Badges de Dificuldade */
@@ -373,78 +416,172 @@ body {
   border: 1px solid #feb2b2;
 }
 
-.trail-info {
-  font-size: 0.8rem;
-  color: var(--text-main);
-  margin-bottom: 6px;
+/* Importando uma fonte elegante/rústica para o título */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap');
+
+/* Atualização das Variáveis de Cores (Tom Rústico/Praiana) */
+:root {
+  --bg-color: #f4efe6;          /* Areia quente */
+  --card-bg: #fffdf9;          /* Off-white aconchegante */
+  --text-main: #2c221e;         /* Café escuro / Madeira */
+  --text-muted: #726255;       /* Marrom suave */
+  --accent: #b85b35;           /* Terracota / Cerâmica */
+  --accent-light: #f3e5d8;     /* Palha */
+  --border-radius: 18px;
 }
 
-.trail-content p {
-  font-size: 0.82rem;
-  color: var(--text-muted);
-  line-height: 1.4;
-  margin-bottom: 12px;
+/* Banner de Topo com Foto de Fundo */
+.hero-banner {
+  background: linear-gradient(180deg, rgba(44, 34, 30, 0.4) 0%, rgba(44, 34, 30, 0.75) 100%), 
+              url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80'); /* Imagem de praia/mar */
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--border-radius);
+  padding: 16px 16px 28px 16px;
+  margin-bottom: 20px;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(44, 34, 30, 0.15);
 }
 
-/* Contêiner de Idiomas Compacto */
+.hero-content h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.8rem;
+  letter-spacing: 1.5px;
+  margin-top: 10px;
+  margin-bottom: 4px;
+  color: #fdfbf7;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-content p {
+  font-size: 0.85rem;
+  color: #e6dacd;
+  font-weight: 500;
+}
+
+/* Ajuste no Seletor de Idiomas Rústico */
 .language-selector {
   display: flex;
   justify-content: center;
-  align-items: center;
   gap: 8px;
-  margin: 10px auto 18px auto;
-  padding: 6px 10px;
-  background: #1e293b;
+  background: rgba(44, 34, 30, 0.55);
+  backdrop-filter: blur(6px);
+  padding: 5px 8px;
   border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   width: fit-content;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  margin: 0 auto;
 }
 
-/* Botões de Idioma Menores */
 .lang-btn {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  background-color: #ffffff;
-  color: #0f172a;
-  border: 1.5 solid #ffffff;
+  background: transparent;
+  color: #fdfbf7;
+  border: none;
   padding: 4px 10px;
-  border-radius: 14px;
-  font-size: 0.8rem;
-  font-weight: 700;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
 }
 
-.lang-btn .flag {
-  font-size: 0.95rem;
-}
-
-/* Efeito ao passar o mouse */
-.lang-btn:hover {
-  background-color: #f1f5f9;
-  border-color: #38bdf8;
-  transform: translateY(-1px);
-}
-
-/* Botão Selecionado (Idioma Ativo) */
 .lang-btn.active {
-  background-color: #0284c7;
+  background-color: var(--accent);
   color: #ffffff;
-  border-color: #38bdf8;
-  box-shadow: 0 0 6px rgba(56, 189, 248, 0.4);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
-.place-card {
-  overflow: hidden; /* Garante que a imagem respeite as bordas arredondadas do card */
+/* Estilo do Botão "Falar com Anfitrião" Rústico */
+.menu-item.highlight {
+  grid-column: span 2;
+  background-color: #e9f0e8;
+  color: #2d5a27;
+  border: 1px solid #c8dcc5;
+}
+
+/* ==========================================
+   MELHORIAS DE DESIGN: CARDS E MENU
+   ========================================== */
+
+/* Cartões de Acesso Rápido (Wi-Fi e Check-out) */
+.info-card {
+  background: var(--card-bg);
+  padding: 16px;
+  border-radius: var(--border-radius);
+  border: 1px solid #e6ded3;
+  box-shadow: 0 4px 12px rgba(44, 34, 30, 0.05);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
-.place-card img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover; /* Ajusta a imagem sem distorcer */
-  border-top-left-radius: 8px; /* Ajuste para o raio de borda do seu card */
-  border-top-right-radius: 8px;
+.info-card h3 {
+  font-size: 0.85rem;
+  color: var(--accent);
+  margin-bottom: 8px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Botão Copiar Wi-Fi refinado */
+.info-card button {
+  background-color: var(--accent-light);
+  color: var(--accent);
+  border: 1px solid rgba(184, 91, 53, 0.2);
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.info-card button:active {
+  background-color: var(--accent);
+  color: #ffffff;
+  transform: scale(0.95);
+}
+
+/* Grid do Menu Principal */
+.menu-item {
+  background: var(--card-bg);
+  padding: 22px 12px;
+  border-radius: var(--border-radius);
+  border: 1px solid #e6ded3;
+  text-decoration: none;
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(44, 34, 30, 0.04);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Efeito ao passar o mouse / tocar na tela */
+.menu-item:hover {
+  border-color: var(--accent);
+  box-shadow: 0 6px 20px rgba(184, 91, 53, 0.12);
+  transform: translateY(-2px);
+}
+
+.menu-item:active {
+  transform: scale(0.96) translateY(0);
+}
+
+.menu-item .icon {
+  font-size: 2rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+}
+
+/* Destaque do Botão "Falar com Anfitrião" */
+.menu-item.highlight {
+  grid-column: span 2;
+  background: linear-gradient(135deg, #eaf3e9 0%, #d8ead6 100%);
+  color: #23521f;
+  border: 1px solid #b8dab4;
+  box-shadow: 0 4px 14px rgba(35, 82, 31, 0.08);
+}
+
+.menu-item.highlight:hover {
+  border-color: #23521f;
 }
