@@ -28,6 +28,47 @@
       transform: translateY(-2px);
       box-shadow: 0 6px 12px rgba(0,0,0,0.15);
     }
+
+    /* Estilização dos Banners por Categoria */
+    .category-banner {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 30px;
+      margin-bottom: 20px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+      height: 160px;
+      display: flex;
+      align-items: flex-end;
+    }
+    .category-banner img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.6);
+      transition: transform 0.5s ease;
+    }
+    .category-banner:hover img {
+      transform: scale(1.03);
+    }
+    .category-banner-content {
+      position: relative;
+      z-index: 2;
+      padding: 20px;
+      color: #ffffff;
+      width: 100%;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 10%, rgba(0,0,0,0.1) 90%);
+    }
+    .category-banner-content h3 {
+      margin: 0;
+      font-size: 1.7rem;
+      font-weight: 800; /* Super em negrito */
+      letter-spacing: 0.5px;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.7);
+    }
   </style>
 </head>
 <body>
@@ -46,8 +87,14 @@
       </header>
 
       <!-- CROSSFIT & TREINO FUNCIONAL -->
-      <section class="section-group">
-        <span class="group-title">🏋️‍♀️ CrossFit & Funcional</span>
+      <div class="category-banner">
+        <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1200&q=80" alt="CrossFit e Funcional">
+        <div class="category-banner-content">
+          <h3>🏋️‍♀️ CrossFit & Funcional</h3>
+        </div>
+      </div>
+
+      <section class="section-group" style="margin-top: 0;">
         <div class="places-grid">
 
           <div class="place-card">
@@ -84,8 +131,14 @@
       </section>
 
       <!-- MUSCULAÇÃO E FITNESS -->
-      <section class="section-group">
-        <span class="group-title">💪 Musculação & Fitness</span>
+      <div class="category-banner">
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80" alt="Musculação e Fitness">
+        <div class="category-banner-content">
+          <h3>💪 Musculação & Fitness</h3>
+        </div>
+      </div>
+
+      <section class="section-group" style="margin-top: 0;">
         <div class="places-grid">
 
           <div class="place-card">
@@ -150,8 +203,14 @@
       </header>
 
       <!-- CROSSFIT & FUNCTIONAL -->
-      <section class="section-group">
-        <span class="group-title">🏋️‍♀️ CrossFit & Functional Training</span>
+      <div class="category-banner">
+        <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1200&q=80" alt="CrossFit and Functional">
+        <div class="category-banner-content">
+          <h3>🏋️‍♀️ CrossFit & Functional Training</h3>
+        </div>
+      </div>
+
+      <section class="section-group" style="margin-top: 0;">
         <div class="places-grid">
 
           <div class="place-card">
@@ -188,8 +247,14 @@
       </section>
 
       <!-- GYMS & FITNESS -->
-      <section class="section-group">
-        <span class="group-title">💪 Gyms & Fitness</span>
+      <div class="category-banner">
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80" alt="Gym and Fitness">
+        <div class="category-banner-content">
+          <h3>💪 Gyms & Fitness</h3>
+        </div>
+      </div>
+
+      <section class="section-group" style="margin-top: 0;">
         <div class="places-grid">
 
           <div class="place-card">
@@ -254,8 +319,14 @@
       </header>
 
       <!-- CROSSFIT Y FUNCIONAL -->
-      <section class="section-group">
-        <span class="group-title">🏋️‍♀️ CrossFit y Entrenamientos Funcionales</span>
+      <div class="category-banner">
+        <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1200&q=80" alt="CrossFit y Funcional">
+        <div class="category-banner-content">
+          <h3>🏋️‍♀️ CrossFit y Entrenamientos Funcionales</h3>
+        </div>
+      </div>
+
+      <section class="section-group" style="margin-top: 0;">
         <div class="places-grid">
 
           <div class="place-card">
@@ -292,8 +363,14 @@
       </section>
 
       <!-- GIMNASIOS Y FITNESS -->
-      <section class="section-group">
-        <span class="group-title">💪 Gimnasios y Fitness</span>
+      <div class="category-banner">
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80" alt="Gimnasios y Fitness">
+        <div class="category-banner-content">
+          <h3>💪 Gimnasios y Fitness</h3>
+        </div>
+      </div>
+
+      <section class="section-group" style="margin-top: 0;">
         <div class="places-grid">
 
           <div class="place-card">

@@ -5,86 +5,163 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Como Chegar - Guia do Hóspede</title>
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Estilos criativos para a página de Como Chegar */
+    .hero-banner {
+      width: 100%;
+      height: 200px;
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    }
+    .hero-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .transport-icon {
+      font-size: 1.4rem;
+      margin-right: 8px;
+    }
+    .highlight-card {
+      border-left: 4px solid #2ecc71;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
     <a href="index.html" class="btn-back" data-i18n="btn_back">← Voltar ao Início</a>
 
-    <!-- Conteúdo em PORTUGUÊS -->
+    <!-- PORTUGUÊS -->
     <div class="lang-content lang-pt">
       <header class="page-header">
         <h2>🗺️ Como Chegar</h2>
-        <p>Instruções práticas para chegar ao endereço da hospedagem.</p>
+        <p>Instruções e dicas práticas para localizar facilmente a sua hospedagem no Recreio.</p>
       </header>
+
+      <!-- Foto inspiradora do Recreio / Pontal -->
+      <div class="hero-banner">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80" alt="Praia e Recreio dos Bandeirantes - Rio de Janeiro">
+      </div>
 
       <section class="section-group">
         <div class="places-grid">
-          <div class="place-card">
-            <div class="place-header"><h3>📍 Endereço</h3></div>
+          
+          <div class="place-card highlight-card">
+            <div class="place-header">
+              <h3>📍 Endereço Oficial</h3>
+            </div>
             <p><strong>Estrada do Pontal, 7350 - Recreio dos Bandeirantes, Rio de Janeiro - RJ</strong></p>
-            <p>Ponto de referência: Próximo ao encontro da Estrada do Pontal com a Praia do Pontal e Praia da Macumba.</p>
-            <a href="https://maps.google.com/?q=Estrada+do+Pontal+7350+Recreio+dos+Bandeirantes+Rio+de+Janeiro" target="_blank" class="btn-maps-action">📍 Abrir Endereço no Google Maps</a>
+            <p>🌟 <strong>Ponto de referência:</strong> Próximo ao encontro da Estrada do Pontal com a Praia do Pontal e a famosa Praia da Macumba.</p>
+            <a href="https://maps.google.com/?q=Estrada+do+Pontal+7350+Recreio+dos+Bandeirantes+Rio+de+Janeiro" target="_blank" class="btn-maps-action">🗺️ Abrir Endereço no Google Maps</a>
           </div>
 
           <div class="place-card">
-            <div class="place-header"><h3>🚗 De Uber ou Táxi</h3></div>
-            <p>Basta digitar <strong>Estrada do Pontal, 7350</strong> no aplicativo do Uber ou 99.</p>
+            <div class="place-header">
+              <h3>🚗 De Uber ou 99</h3>
+            </div>
+            <p>Basta digitar <strong>Estrada do Pontal, 7350</strong> direto no aplicativo de mobilidade. A região tem excelente sinal de GPS e facilidade para motoristas parceiros.</p>
           </div>
+
+          <div class="place-card">
+            <div class="place-header">
+              <h3>✈️ Vindo do Aeroporto (GIG / SDU)</h3>
+            </div>
+            <p>• <strong>Aeroporto Galeão (GIG):</strong> ~45 a 55 min de carro (via Linha Amarela / Transolímpica).<br>
+            • <strong>Aeroporto Santos Dumont (SDU):</strong> ~50 a 65 min de carro (via Orla / Recreio).</p>
+          </div>
+
         </div>
       </section>
     </div>
 
-    <!-- Conteúdo em INGLÊS -->
+    <!-- INGLÊS -->
     <div class="lang-content lang-en" style="display: none;">
       <header class="page-header">
-        <h2>🗺️ Directions</h2>
-        <p>Practical instructions to reach the property address.</p>
+        <h2>🗺️ Directions & Getting Here</h2>
+        <p>Practical instructions and tips to easily find your accommodation in Recreio.</p>
       </header>
+
+      <div class="hero-banner">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80" alt="Rio de Janeiro Beach">
+      </div>
 
       <section class="section-group">
         <div class="places-grid">
-          <div class="place-card">
-            <div class="place-header"><h3>📍 Address</h3></div>
+          
+          <div class="place-card highlight-card">
+            <div class="place-header">
+              <h3>📍 Official Address</h3>
+            </div>
             <p><strong>Estrada do Pontal, 7350 - Recreio dos Bandeirantes, Rio de Janeiro - RJ</strong></p>
-            <p>Landmark: Near the junction of Estrada do Pontal with Pontal Beach and Macumba Beach.</p>
-            <a href="https://maps.google.com/?q=Estrada+do+Pontal+7350+Recreio+dos+Bandeirantes+Rio+de+Janeiro" target="_blank" class="btn-maps-action">📍 Open Address in Google Maps</a>
+            <p>🌟 <strong>Landmark:</strong> Near the junction of Estrada do Pontal with Pontal Beach and the famous Macumba Beach.</p>
+            <a href="https://maps.google.com/?q=Estrada+do+Pontal+7350+Recreio+dos+Bandeirantes+Rio+de+Janeiro" target="_blank" class="btn-maps-action">🗺️ Open Address in Google Maps</a>
           </div>
 
           <div class="place-card">
-            <div class="place-header"><h3>🚗 By Uber or Taxi</h3></div>
-            <p>Just type <strong>Estrada do Pontal, 7350</strong> in the Uber app.</p>
+            <div class="place-header">
+              <h3>🚗 By Uber or Cab</h3>
+            </div>
+            <p>Simply type <strong>Estrada do Pontal, 7350</strong> directly into your ride-hailing app. The area has great mobile coverage and quick driver availability.</p>
           </div>
+
+          <div class="place-card">
+            <div class="place-header">
+              <h3>✈️ Coming from the Airport (GIG / SDU)</h3>
+            </div>
+            <p>• <strong>Galeão Airport (GIG):</strong> ~45 to 55 min by car.<br>
+            • <strong>Santos Dumont Airport (SDU):</strong> ~50 to 65 min by car.</p>
+          </div>
+
         </div>
       </section>
     </div>
 
-    <!-- Conteúdo em ESPANHOL -->
+    <!-- ESPANHOL -->
     <div class="lang-content lang-es" style="display: none;">
       <header class="page-header">
         <h2>🗺️ Cómo Llegar</h2>
-        <p>Instrucciones prácticas para llegar a la dirección del alojamiento.</p>
+        <p>Instrucciones y consejos prácticos para localizar fácilmente su alojamiento en Recreio.</p>
       </header>
+
+      <div class="hero-banner">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80" alt="Playa de Río de Janeiro">
+      </div>
 
       <section class="section-group">
         <div class="places-grid">
-          <div class="place-card">
-            <div class="place-header"><h3>📍 Dirección</h3></div>
+          
+          <div class="place-card highlight-card">
+            <div class="place-header">
+              <h3>📍 Dirección Oficial</h3>
+            </div>
             <p><strong>Estrada do Pontal, 7350 - Recreio dos Bandeirantes, Rio de Janeiro - RJ</strong></p>
-            <p>Punto de referencia: Cerca do cruce de Estrada do Pontal con la Playa del Pontal y Playa de Macumba.</p>
-            <a href="https://maps.google.com/?q=Estrada+do+Pontal+7350+Recreio+dos+Bandeirantes+Rio+de+Janeiro" target="_blank" class="btn-maps-action">📍 Abrir Dirección en Google Maps</a>
+            <p>🌟 <strong>Punto de referencia:</strong> Cerca del cruce de Estrada do Pontal con la Playa del Pontal y la famosa Playa de Macumba.</p>
+            <a href="https://maps.google.com/?q=Estrada+do+Pontal+7350+Recreio+dos+Bandeirantes+Rio+de+Janeiro" target="_blank" class="btn-maps-action">🗺️ Abrir Dirección en Google Maps</a>
           </div>
 
           <div class="place-card">
-            <div class="place-header"><h3>🚗 En Uber o Taxi</h3></div>
-            <p>Simplemente ingrese <strong>Estrada do Pontal, 7350</strong> en la aplicación Uber.</p>
+            <div class="place-header">
+              <h3>🚗 En Uber o Taxi</h3>
+            </div>
+            <p>Simplemente ingrese <strong>Estrada do Pontal, 7350</strong> en su aplicación de transporte. La zona cuenta con excelente señal y disponibilidad de conductores.</p>
           </div>
+
+          <div class="place-card">
+            <div class="place-header">
+              <h3>✈️ Venciendo del Aeropuerto (GIG / SDU)</h3>
+            </div>
+            <p>• <strong>Aeropuerto Galeão (GIG):</strong> ~45 a 55 min en auto.<br>
+            • <strong>Aeropuerto Santos Dumont (SDU):</strong> ~50 a 65 min en auto.</p>
+          </div>
+
         </div>
       </section>
     </div>
 
   </div>
-
-  <!-- Importante: Incluir o main.js para carregar o idioma salvo -->
   <script src="js/main.js"></script>
 </body>
 </html>

@@ -5,6 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Emergências - Guia do Hóspede</title>
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Estilos criativos para a página de Emergências */
+    .emergency-highlight {
+      border-left: 4px solid #e74c3c;
+    }
+    /* Badges para diferenciar Público e Particular */
+    .badge-public {
+      background-color: #3498db;
+      color: white;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+    .badge-private {
+      background-color: #9b59b6;
+      color: white;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+    .section-banner {
+      width: 100%;
+      height: 140px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 15px 0 20px 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+    .section-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -14,13 +55,13 @@
     <div class="lang-content lang-pt">
       <header class="page-header">
         <h2>🚨 Emergências & Saúde</h2>
-        <p>Contatos e locais para atendimento rápido na região do Recreio e Barra.</p>
+        <p>Contatos essenciais e locais de atendimento rápido para sua total segurança na região.</p>
       </header>
 
       <section class="section-group">
         <span class="group-title">📞 Telefones de Emergência (Gratuitos)</span>
         <div class="places-grid">
-          <div class="place-card">
+          <div class="place-card emergency-highlight">
             <div class="place-header">
               <h3>SAMU (Ambulância)</h3>
               <span class="distance-badge">📞 192</span>
@@ -29,7 +70,7 @@
             <a href="tel:192" class="btn-maps-action">📞 Ligar 192</a>
           </div>
 
-          <div class="place-card">
+          <div class="place-card emergency-highlight">
             <div class="place-header">
               <h3>Polícia Militar</h3>
               <span class="distance-badge">📞 190</span>
@@ -38,12 +79,12 @@
             <a href="tel:190" class="btn-maps-action">📞 Ligar 190</a>
           </div>
 
-          <div class="place-card">
+          <div class="place-card emergency-highlight">
             <div class="place-header">
               <h3>Corpo de Bombeiros</h3>
               <span class="distance-badge">📞 193</span>
             </div>
-            <p>Resgatas, incêndios, acidentes na praia e salvamentos marinhos.</p>
+            <p>Resgates, incêndios, acidentes na praia e salvamentos marinhos.</p>
             <a href="tel:193" class="btn-maps-action">📞 Ligar 193</a>
           </div>
         </div>
@@ -51,12 +92,18 @@
 
       <section class="section-group">
         <span class="group-title">🏥 Hospitais e Prontos-Socorros Próximos</span>
+        
+        <div class="section-banner">
+          <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1200&q=80" alt="Hospital e Pronto Socorro Moderno">
+        </div>
+
         <div class="places-grid">
           <div class="place-card">
             <div class="place-header">
               <h3>UPA 24h Recreio</h3>
               <span class="distance-badge">📍 ~5 km</span>
             </div>
+            <span class="badge-public">Rede Pública (SUS)</span>
             <p>Unidade de Pronto Atendimento público 24h para urgências gerais e atendimento rápido no Recreio.</p>
             <a href="https://maps.google.com/?q=UPA+24h+Recreio+dos+Bandeirantes" target="_blank" class="btn-maps-action">📍 Como Chegar</a>
           </div>
@@ -66,6 +113,7 @@
               <h3>Hospital Unimed Rio</h3>
               <span class="distance-badge">📍 ~8 km</span>
             </div>
+            <span class="badge-private">Rede Particular / Convênios</span>
             <p>Hospital privado moderno localizado na Barra da Tijuca, com emergência 24h e estrutura completa.</p>
             <a href="https://maps.google.com/?q=Hospital+Unimed-Rio+Barra" target="_blank" class="btn-maps-action">📍 Como Chegar</a>
           </div>
@@ -75,6 +123,7 @@
               <h3>Hospital Samaritano Barra</h3>
               <span class="distance-badge">📍 ~10 km</span>
             </div>
+            <span class="badge-private">Rede Particular / Convênios</span>
             <p>Hospital particular de referência de alto padrão com pronto-socorro geral e pediátrico 24h.</p>
             <a href="https://maps.google.com/?q=Hospital+Samaritano+Barra" target="_blank" class="btn-maps-action">📍 Como Chegar</a>
           </div>
@@ -84,6 +133,7 @@
               <h3>Hospital Barra D'Or</h3>
               <span class="distance-badge">📍 ~12 km</span>
             </div>
+            <span class="badge-private">Rede Particular / Convênios</span>
             <p>Um dos mais tradicionais hospitais particulares da região, com emergência completa e centro cirúrgico.</p>
             <a href="https://maps.google.com/?q=Hospital+Barra+D+Or" target="_blank" class="btn-maps-action">📍 Como Chegar</a>
           </div>
@@ -93,6 +143,7 @@
               <h3>Hospital Municipal Lourenço Jorge</h3>
               <span class="distance-badge">📍 ~12 km</span>
             </div>
+            <span class="badge-public">Rede Pública (SUS)</span>
             <p>Principal hospital público de emergência e trauma da região Barra/Recreio, com atendimento 24 horas.</p>
             <a href="https://maps.google.com/?q=Hospital+Municipal+Lourenco+Jorge" target="_blank" class="btn-maps-action">📍 Como Chegar</a>
           </div>
@@ -104,13 +155,13 @@
     <div class="lang-content lang-en" style="display: none;">
       <header class="page-header">
         <h2>🚨 Emergency & Health</h2>
-        <p>Contacts and locations for fast medical care in the Recreio and Barra area.</p>
+        <p>Essential contacts and fast medical care locations for your safety in the area.</p>
       </header>
 
       <section class="section-group">
         <span class="group-title">📞 Emergency Numbers (Toll-Free)</span>
         <div class="places-grid">
-          <div class="place-card">
+          <div class="place-card emergency-highlight">
             <div class="place-header">
               <h3>SAMU (Ambulance)</h3>
               <span class="distance-badge">📞 192</span>
@@ -119,7 +170,7 @@
             <a href="tel:192" class="btn-maps-action">📞 Call 192</a>
           </div>
 
-          <div class="place-card">
+          <div class="place-card emergency-highlight">
             <div class="place-header">
               <h3>Police</h3>
               <span class="distance-badge">📞 190</span>
@@ -128,7 +179,7 @@
             <a href="tel:190" class="btn-maps-action">📞 Call 190</a>
           </div>
 
-          <div class="place-card">
+          <div class="place-card emergency-highlight">
             <div class="place-header">
               <h3>Fire Department</h3>
               <span class="distance-badge">📞 193</span>
@@ -141,12 +192,18 @@
 
       <section class="section-group">
         <span class="group-title">🏥 Nearby Hospitals & ER</span>
+        
+        <div class="section-banner">
+          <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1200&q=80" alt="Modern Hospital and ER">
+        </div>
+
         <div class="places-grid">
           <div class="place-card">
             <div class="place-header">
               <h3>UPA 24h Recreio</h3>
               <span class="distance-badge">📍 ~5 km</span>
             </div>
+            <span class="badge-public">Public Healthcare (SUS)</span>
             <p>24-hour public emergency care unit for general health issues in Recreio.</p>
             <a href="https://maps.google.com/?q=UPA+24h+Recreio+dos+Bandeirantes" target="_blank" class="btn-maps-action">📍 Directions</a>
           </div>
@@ -156,6 +213,7 @@
               <h3>Hospital Unimed Rio</h3>
               <span class="distance-badge">📍 ~8 km</span>
             </div>
+            <span class="badge-private">Private Hospital / Insurance</span>
             <p>Modern private hospital in Barra da Tijuca with full 24/7 emergency services.</p>
             <a href="https://maps.google.com/?q=Hospital+Unimed-Rio+Barra" target="_blank" class="btn-maps-action">📍 Directions</a>
           </div>
@@ -165,6 +223,7 @@
               <h3>Hospital Samaritano Barra</h3>
               <span class="distance-badge">📍 ~10 km</span>
             </div>
+            <span class="badge-private">Private Hospital / Insurance</span>
             <p>Top-tier private hospital with general and pediatric 24/7 ER care.</p>
             <a href="https://maps.google.com/?q=Hospital+Samaritano+Barra" target="_blank" class="btn-maps-action">📍 Directions</a>
           </div>
@@ -174,6 +233,7 @@
               <h3>Hospital Barra D'Or</h3>
               <span class="distance-badge">📍 ~12 km</span>
             </div>
+            <span class="badge-private">Private Hospital / Insurance</span>
             <p>One of the main private hospitals in the region with 24/7 comprehensive emergency facilities.</p>
             <a href="https://maps.google.com/?q=Hospital+Barra+D+Or" target="_blank" class="btn-maps-action">📍 Directions</a>
           </div>
@@ -183,6 +243,7 @@
               <h3>Hospital Municipal Lourenço Jorge</h3>
               <span class="distance-badge">📍 ~12 km</span>
             </div>
+            <span class="badge-public">Public Healthcare (SUS)</span>
             <p>Major public emergency and trauma hospital in the Barra/Recreio area, open 24 hours.</p>
             <a href="https://maps.google.com/?q=Hospital+Municipal+Lourenco+Jorge" target="_blank" class="btn-maps-action">📍 Directions</a>
           </div>
@@ -194,13 +255,13 @@
     <div class="lang-content lang-es" style="display: none;">
       <header class="page-header">
         <h2>🚨 Emergencias y Salud</h2>
-        <p>Contactos y lugares de atención rápida en la zona de Recreio y Barra.</p>
+        <p>Contactos esenciales y lugares de atención médica rápida para su seguridad en la zona.</p>
       </header>
 
       <section class="section-group">
         <span class="group-title">📞 Teléfonos de Emergencia (Gratuitos)</span>
         <div class="places-grid">
-          <div class="place-card">
+          <div class="place-card emergency-highlight">
             <div class="place-header">
               <h3>SAMU (Ambulancia)</h3>
               <span class="distance-badge">📞 192</span>
@@ -209,7 +270,7 @@
             <a href="tel:192" class="btn-maps-action">📞 Llamar al 192</a>
           </div>
 
-          <div class="place-card">
+          <div class="place-card emergency-highlight">
             <div class="place-header">
               <h3>Policía</h3>
               <span class="distance-badge">📞 190</span>
@@ -218,7 +279,7 @@
             <a href="tel:190" class="btn-maps-action">📞 Llamar al 190</a>
           </div>
 
-          <div class="place-card">
+          <div class="place-card emergency-highlight">
             <div class="place-header">
               <h3>Bomberos</h3>
               <span class="distance-badge">📞 193</span>
@@ -231,12 +292,18 @@
 
       <section class="section-group">
         <span class="group-title">🏥 Hospitales y Urgencias Cercanos</span>
+        
+        <div class="section-banner">
+          <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1200&q=80" alt="Hospitales y Urgencias Moderno">
+        </div>
+
         <div class="places-grid">
           <div class="place-card">
             <div class="place-header">
               <h3>UPA 24h Recreio</h3>
               <span class="distance-badge">📍 ~5 km</span>
             </div>
+            <span class="badge-public">Red Pública (SUS)</span>
             <p>Unidad pública de atención médica de urgencia 24 horas en Recreio.</p>
             <a href="https://maps.google.com/?q=UPA+24h+Recreio+dos+Bandeirantes" target="_blank" class="btn-maps-action">📍 Cómo Llegar</a>
           </div>
@@ -246,6 +313,7 @@
               <h3>Hospital Unimed Rio</h3>
               <span class="distance-badge">📍 ~8 km</span>
             </div>
+            <span class="badge-private">Red Privada / Seguros</span>
             <p>Hospital privado moderno en Barra da Tijuca, con urgencias 24h y equipamiento completo.</p>
             <a href="https://maps.google.com/?q=Hospital+Unimed-Rio+Barra" target="_blank" class="btn-maps-action">📍 Cómo Llegar</a>
           </div>
@@ -255,6 +323,7 @@
               <h3>Hospital Samaritano Barra</h3>
               <span class="distance-badge">📍 ~10 km</span>
             </div>
+            <span class="badge-private">Red Privada / Seguros</span>
             <p>Hospital privado de primer nivel con servicio de urgencias generales y pediátricas 24h.</p>
             <a href="https://maps.google.com/?q=Hospital+Samaritano+Barra" target="_blank" class="btn-maps-action">📍 Cómo Llegar</a>
           </div>
@@ -264,6 +333,7 @@
               <h3>Hospital Barra D'Or</h3>
               <span class="distance-badge">📍 ~12 km</span>
             </div>
+            <span class="badge-private">Red Privada / Seguros</span>
             <p>Hospital privado de referencia con servicio de urgencias 24h y alta complejidad.</p>
             <a href="https://maps.google.com/?q=Hospital+Barra+D+Or" target="_blank" class="btn-maps-action">📍 Cómo Llegar</a>
           </div>
@@ -273,7 +343,8 @@
               <h3>Hospital Municipal Lourenço Jorge</h3>
               <span class="distance-badge">📍 ~12 km</span>
             </div>
-            <p>Principal hospital público de emergencias y trauma de la región Barra/Recreio, aberto 24 horas.</p>
+            <span class="badge-public">Red Pública (SUS)</span>
+            <p>Principal hospital público de emergencias y trauma de la región Barra/Recreio, abierto 24 horas.</p>
             <a href="https://maps.google.com/?q=Hospital+Municipal+Lourenco+Jorge" target="_blank" class="btn-maps-action">📍 Cómo Llegar</a>
           </div>
         </div>
