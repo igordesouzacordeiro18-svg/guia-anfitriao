@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeria de Fotos - Guia do Hóspede</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    :root {
+      --bg-page: #f6f3ee;
+      --ink-main: #18181b;
+      --ink-muted: #52525b;
+      --accent: #0f766e;
+      --accent-soft: rgba(15, 118, 110, 0.12);
+      --card-bg: #e7e2d8;
+    }
+
+    body {
+      background-color: var(--bg-page);
+      color: var(--ink-main);
+    }
+
+    .gallery-shell {
+      max-width: 920px;
+      margin: 0 auto;
+      padding-bottom: 48px;
+    }
+
+    .gallery-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 0 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      color: var(--ink-main);
+      font-weight: 600;
+      font-size: 0.92rem;
+      background: #ffffff;
+      border: 1px solid rgba(24, 24, 27, 0.1);
+      padding: 8px 16px;
+      border-radius: 999px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .btn-back:hover {
+      background: #f0ece4;
+      transform: translateX(-2px);
+    }
+
+    .gallery-heading {
+      text-align: right;
+    }
+
+    .gallery-title {
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+
+    .gallery-subtitle {
+      font-size: 0.82rem;
+      color: var(--ink-muted);
+      margin: 2px 0 0;
+    }
+
+    /* Barra de filtros por categoria */
+    .filter-bar {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 8px 2px 16px;
+      scrollbar-width: none;
+    }
+
+    .filter-bar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .filter-pill {
+      border: 1px solid rgba(24, 24, 27, 0.12);
+      background: #ffffff;
+      color: var(--ink-main);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 7px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .filter-pill:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .filter-pill.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(15, 118, 110, 0.25);
+    }
+
+    /* Grade Editorial Bento */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    @media (min-width: 720px) {
+      .bento-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+
+      .photo-card.hero {
+        grid-column: span 2;
+        height: 310px;
+      }
+
+      .photo-card {
+        height: 245px;
+      }
+    }
+
+    .photo-card {
+      position: relative;
+      height: 195px;
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+      background-color: var(--card-bg);
+      box-shadow: 0 8px 24px rgba(24, 24, 27, 0.08);
+      user-select: none;
+      animation: cardFadeIn 0.35s ease both;
+    }
+
+    .photo-card.hero {
+      grid-column: span 2;
+      height: 255px;
+    }
+
+    @media (min-width: 720px) {
+      .photo-card.hero {
+        grid-column: span 2;
+        height: 310px;
+      }
+    }
+
+    @keyframes cardFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .photo-card:hover img {
+      transform: scale(1.04);
+    }
+
+    .photo-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(12, 12, 14, 0.78) 0%,
+        rgba(12, 12, 14, 0.18) 52%,
+        transparent 100%
+      );
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 13px 14px;
+      pointer-events: none;
+    }
+
+    .photo-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .photo-tag {
+      color: #ffffff;
+      font-size: 0.88rem;
+      font-weight: 700;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
+    }
+
+    .photo-counter {
+      color: #ffffff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(6px);
+      padding: 2px 8px;
+      border-radius: 999px;
+      flex-shrink: 0;
+    }
+
+    .photo-desc {
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.75rem;
+      margin-top: 3px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Bolinhas indicadoras dentro do card */
+    .photo-dots {
+      display: flex;
+      gap: 5px;
+      margin-top: 7px;
+      pointer-events: auto;
+    }
+
+    .photo-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      border: none;
+      padding: 0;
+      background: rgba(255, 255, 255, 0.42);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .photo-dot.active {
+      width: 16px;
+      border-radius: 999px;
+      background: #ffffff;
+    }
+
+    /* Setas de navegação no card */
+    .card-arrow {
+      position: absolute;
+      top: 44%;
+      transform: translateY(-50%);
+      z-index: 2;
+      width: 32px;
+      height: 32px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 50%;
+      background: rgba(18, 18, 22, 0.52);
+      color: #ffffff;
+      font-size: 19px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .card-arrow:hover {
+      background: rgba(18, 18, 22, 0.82);
+    }
+
+    .card-arrow.prev {
+      left: 8px;
+    }
+
+    .card-arrow.next {
+      right: 8px;
+    }
+
+    /* Lightbox / Zoom em tela cheia */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      inset: 0;
+      background: rgba(10, 10, 12, 0.94);
+      backdrop-filter: blur(10px);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox-img {
+      max-width: 94%;
+      max-height: 76vh;
+      border-radius: 16px;
+      object-fit: contain;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .lightbox-caption {
+      color: #ffffff;
+      margin-top: 14px;
+      font-size: 0.98rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .lightbox-sub {
+      color: rgba(255, 255, 255, 0.72);
+      margin-top: 4px;
+      font-size: 0.84rem;
+      text-align: center;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      color: #ffffff;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.16);
+      border-radius: 50%;
+    }
+
+    .lightbox-arrow {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+      font-size: 26px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-arrow.prev {
+      left: 14px;
+    }
+
+    .lightbox-arrow.next {
+      right: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container gallery-shell">
+    <header class="gallery-header">
+      <a href="index.html" class="btn-back">← Voltar</a>
+      <div class="gallery-heading">
+        <h1 class="gallery-title">📷 Conheça o Espaço</h1>
+        <p class="gallery-subtitle">Toque nas setas para alternar ângulos ou na foto para ampliar</p>
+      </div>
+    </header>
+
+    <nav class="filter-bar" aria-label="Filtrar ambientes">
+      <button class="filter-pill active" type="button" data-filter="all">✨ Todos</button>
+      <button class="filter-pill" type="button" data-filter="sala">🛋️ Sala & Varanda</button>
+      <button class="filter-pill" type="button" data-filter="quarto">🛏️ Quarto</button>
+      <button class="filter-pill" type="button" data-filter="banho">🛁 Banho & Banheira</button>
+      <button class="filter-pill" type="button" data-filter="extras">🍳 Cozinha & Closet</button>
+    </nav>
+
+    <main id="gallery-grid" class="bento-grid"></main>
+  </div>
+
+  <!-- Modal de Zoom -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+    <span class="lightbox-close" onclick="closeLightbox(event)">&times;</span>
+    <button id="lb-prev" class="lightbox-arrow prev" type="button" onclick="stepLightbox(event, -1)" aria-label="Foto anterior">‹</button>
+    <img id="lightbox-img" class="lightbox-img" src="" alt="Foto expandida">
+    <button id="lb-next" class="lightbox-arrow next" type="button" onclick="stepLightbox(event, 1)" aria-label="Próxima foto">›</button>
+    <div id="lightbox-caption" class="lightbox-caption"></div>
+    <div id="lightbox-sub" class="lightbox-sub"></div>
+  </div>
+
+  <script>
+    // Se suas fotos estiverem em "img/hospedagem/", altere para "img/hospedagem/"
+    const PASTA_FOTOS = "img/";
+
+    const ambientes = [
+      {
+        id: "sala",
+        categoria: "sala",
+        titulo: "🛋️ Sala com Varanda",
+        descricao: "Espaço integrado com sofá, mesa e luz natural",
+        hero: true,
+        fotos: [
+          { arquivo: "Sala com varanda.jpeg", legenda: "Sala com varanda", detalhe: "Vista principal do ambiente" },
+          { arquivo: "Sala com varanda2.jpeg", legenda: "Sala com varanda (2)", detalhe: "Outro ângulo do espaço" }
+        ]
+      },
+      {
+        id: "quarto",
+        categoria: "quarto",
+        titulo: "🛏️ Quarto",
+        descricao: "Iluminação aconchegante para descansar",
+        fotos: [
+          { arquivo: "Quarto.jpeg", legenda: "Quarto", detalhe: "Vista 1 do quarto" },
+          { arquivo: "Quarto2.jpeg", legenda: "Quarto (2)", detalhe: "Vista 2 do quarto" },
+          { arquivo: "Quarto3.jpeg", legenda: "Quarto (3)", detalhe: "Vista 3 do quarto" }
+        ]
+      },
+      {
+        id: "banheiro",
+        categoria: "banho",
+        titulo: "🚿 Banheiro",
+        descricao: "Acabamento moderno e prático",
+        fotos: [
+          { arquivo: "Banheiro.jpeg", legenda: "Banheiro", detalhe: "Vista 1 do banheiro" },
+          { arquivo: "Banheiro2.jpeg", legenda: "Banheiro (2)", detalhe: "Vista 2 do banheiro" }
+        ]
+      },
+      {
+        id: "banheira",
+        categoria: "banho",
+        titulo: "🛁 Banheira",
+        descricao: "Momento relaxante após o passeio",
+        fotos: [
+          { arquivo: "banheira.jpeg", legenda: "Banheira", detalhe: "Vista 1 da banheira" },
+          { arquivo: "Banheira2.jpeg", legenda: "Banheira (2)", detalhe: "Vista 2 da banheira" }
+        ]
+      },
+      {
+        id: "cozinha",
+        categoria: "extras",
+        titulo: "🍳 Cozinha",
+        descricao: "Pronta para refeições e cafés rápidos",
+        fotos: [
+          { arquivo: "Cozinha.jpeg", legenda: "Cozinha", detalhe: "Área da cozinha" }
+        ]
+      },
+      {
+        id: "closet",
+        categoria: "extras",
+        titulo: "👗 Closet",
+        descricao: "Organização prática para malas e roupas",
+        fotos: [
+          { arquivo: "Closet.jpeg", legenda: "Closet", detalhe: "Espaço de guarda-roupa" }
+        ]
+      }
+    ];
+
+    const estadoIndices = ambientes.map(() => 0);
+    let filtroAtual = "all";
+    let lightboxAmbienteIdx = null;
+
+    function getSrc(arquivo) {
+      return encodeURI(PASTA_FOTOS + arquivo);
+    }
+
+    function renderGallery() {
+      const grid = document.getElementById("gallery-grid");
+      grid.innerHTML = "";
+
+      const visiveis = ambientes
+        .map((amb, ambIdx) => ({ amb, ambIdx }))
+        .filter(({ amb }) => filtroAtual === "all" || amb.categoria === filtroAtual);
+
+      visiveis.forEach(({ amb, ambIdx }) => {
+        const atual = estadoIndices[ambIdx];
+        const fotoAtual = amb.fotos[atual];
+        const temVariacoes = amb.fotos.length > 1;
+        const ehHero = amb.hero && filtroAtual === "all";
+
+        const card = document.createElement("div");
+        card.className = `photo-card${ehHero ? " hero" : ""}`;
+        card.onclick = () => openLightbox(ambIdx);
+
+        const img = document.createElement("img");
+        img.src = getSrc(fotoAtual.arquivo);
+        img.alt = fotoAtual.legenda;
+        img.loading = "lazy";
+        card.appendChild(img);
+
+        if (temVariacoes) {
+          const prevBtn = document.createElement("button");
+          prevBtn.type = "button";
+          prevBtn.className = "card-arrow prev";
+          prevBtn.setAttribute("aria-label", "Foto anterior");
+          prevBtn.innerHTML = "&#8249;";
+          prevBtn.onclick = (e) => changeCardPhoto(e, ambIdx, -1);
+
+          const nextBtn = document.createElement("button");
+          nextBtn.type = "button";
+          nextBtn.className = "card-arrow next";
+          nextBtn.setAttribute("aria-label", "Próxima foto");
+          nextBtn.innerHTML = "&#8250;";
+          nextBtn.onclick = (e) => changeCardPhoto(e, ambIdx, 1);
+
+          card.appendChild(prevBtn);
+          card.appendChild(nextBtn);
+        }
+
+        const dotsHtml = temVariacoes
+          ? `<div class="photo-dots">${amb.fotos
+              .map(
+                (_, idx) =>
+                  `<button type="button" class="photo-dot${idx === atual ? " active" : ""}" aria-label="Ir para foto ${idx + 1}" onclick="selectCardPhoto(event, ${ambIdx}, ${idx})"></button>`
+              )
+              .join("")}</div>`
+          : "";
+
+        const overlay = document.createElement("div");
+        overlay.className = "photo-overlay";
+        overlay.innerHTML = `
+          <div class="photo-top-row">
+            <span class="photo-tag">${amb.titulo}</span>
+            ${temVariacoes ? `<span class="photo-counter">${atual + 1}/${amb.fotos.length}</span>` : ""}
+          </div>
+          <span class="photo-desc">${amb.descricao}</span>
+          ${dotsHtml}
+        `;
+        card.appendChild(overlay);
+
+        grid.appendChild(card);
+      });
+    }
+
+    function changeCardPhoto(event, ambIdx, delta) {
+      event.stopPropagation();
+      const total = ambientes[ambIdx].fotos.length;
+      estadoIndices[ambIdx] = (estadoIndices[ambIdx] + delta + total) % total;
+      renderGallery();
+    }
+
+    function selectCardPhoto(event, ambIdx, fotoIdx) {
+      event.stopPropagation();
+      estadoIndices[ambIdx] = fotoIdx;
+      renderGallery();
+    }
+
+    document.querySelectorAll(".filter-pill").forEach((pill) => {
+      pill.addEventListener("click", () => {
+        document.querySelectorAll(".filter-pill").forEach((p) => p.classList.remove("active"));
+        pill.classList.add("active");
+        filtroAtual = pill.dataset.filter;
+        renderGallery();
+      });
+    });
+
+    function openLightbox(ambIdx) {
+      lightboxAmbienteIdx = ambIdx;
+      updateLightbox();
+      document.getElementById("lightbox").classList.add("active");
+    }
+
+    function updateLightbox() {
+      if (lightboxAmbienteIdx === null) return;
+      const amb = ambientes[lightboxAmbienteIdx];
+      const foto = amb.fotos[estadoIndices[lightboxAmbienteIdx]];
+      const temVariacoes = amb.fotos.length > 1;
+
+      document.getElementById("lightbox-img").src = getSrc(foto.arquivo);
+      document.getElementById("lightbox-caption").textContent = temVariacoes
+        ? `${foto.legenda} (${estadoIndices[lightboxAmbienteIdx] + 1} de ${amb.fotos.length})`
+        : foto.legenda;
+      document.getElementById("lightbox-sub").textContent = foto.detalhe || amb.descricao;
+
+      document.getElementById("lb-prev").style.display = temVariacoes ? "flex" : "none";
+      document.getElementById("lb-next").style.display = temVariacoes ? "flex" : "none";
+    }
+
+    function stepLightbox(event, delta) {
+      event.stopPropagation();
+      if (lightboxAmbienteIdx === null) return;
+      const total = ambientes[lightboxAmbienteIdx].fotos.length;
+      estadoIndices[lightboxAmbienteIdx] = (estadoIndices[lightboxAmbienteIdx] + delta + total) % total;
+      updateLightbox();
+      renderGallery();
+    }
+
+    function closeLightbox(event) {
+      if (
+        !event ||
+        event.target.id === "lightbox" ||
+        event.target.classList.contains("lightbox-close")
+      ) {
+        document.getElementById("lightbox").classList.remove("active");
+        lightboxAmbienteIdx = null;
+      }
+    }
+
+    document.addEventListener("keydown", (e) => {
+      const lbActive = document.getElementById("lightbox").classList.contains("active");
+      if (!lbActive) return;
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") stepLightbox(null, -1);
+      if (e.key === "ArrowRight") stepLightbox(null, 1);
+    });
+
+    renderGallery();
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>
